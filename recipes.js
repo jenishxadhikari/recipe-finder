@@ -5,6 +5,8 @@ const displayRecipes = document.getElementById("displayRecipes")
 const filter = document.getElementById("filter")
 const close = document.getElementById("close")
 const form = document.querySelector("form")
+const search = document.getElementById("search")
+const searchButton = document.getElementById("searchButton")
 
 let selectedTags = []
 
@@ -30,6 +32,7 @@ function handleSelectedTags(e) {
 // Event Listeners
 filter.addEventListener("click", handleOpenDialog)
 close.addEventListener("click", handleCloseDialog)
+searchButton.addEventListener("click", renderSearchedRecipes)
 
 // Helper Functions
 async function renderTags() {
@@ -139,5 +142,40 @@ function renderFilteredRecipes(recipes) {
   } else {
     displayRecipes.innerHTML = ""
     displayRecipes.innerHTML = "No Recipe Found"
+  }
+}
+
+async function renderSearchedRecipes() {
+  displayRecipes.innerHTML = `<p class="text-3xl">Loading...</p>`
+  if(search.value === ""){
+    return renderAllRecipes()
+  }
+
+  try {
+    const response = await fetch(`https://dummyjson.com/recipes/search?q=${search.value}`)
+    const { recipes } = await response.json()
+    if (recipes.length > 0) {
+      displayRecipes.innerHTML = ""
+      displayRecipes.innerHTML = recipes.map(recipe =>
+        `
+        <div class="flex flex-col border-2 border-zinc-500 rounded-md overflow-hidden">
+          <img src=${recipe.image} alt=${recipe.name} class="">
+          <div class="h-full flex flex-col justify-between">
+            <p class="font-semibold text-lg p-2 hover:underline decoration-emerald-500 underline-offset-2">${recipe.name}</p>
+            <div class="p-2 flex justify-between items-center">
+              <p class="">⭐${recipe.rating}/5</p>
+              <p>${recipe.cookTimeMinutes + recipe.prepTimeMinutes} mins</p>
+            </div>
+          </div>
+        </div>
+      `
+      ).join('')
+    } else {
+      displayRecipes.innerHTML = ""
+      displayRecipes.innerHTML = "No Recipe Found"
+    }
+  } catch (error) {
+    displayRecipes.innerHTML = "An error occurred while fetching recipes.";
+    console.error('Error fetching recipes:', error);
   }
 }
