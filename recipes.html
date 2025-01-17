@@ -11,30 +11,46 @@
 </head>
 
 <body class="min-h-screen bg-zinc-50 px-3 py-5 mx-auto max-w-screen-xl space-y-5 text-zinc-800">
+  <!-- Header Section -->
   <header class="flex items-center justify-between">
     <a href="/" class="text-xl font-semibold text-emerald-500">
       Recipe<span class="p-0.5 text-white bg-emerald-500">Finder</span>
     </a>
   </header>
+
+  <!-- Main Content Section -->
   <main class="space-y-5">
+    <!-- Search Bar -->
     <div class="flex items-center p-1 border-2 border-zinc-500 rounded-md w-full md:max-w-[400px]">
-      <input type="search" class="w-full">
-      <button class="px-1 text-xl border-l-2 border-zinc-500">🔍</button>
+      <input type="search" placeholder="Search recipes..." class="w-full" aria-label="Search Recipes">
+      <button class="px-1 text-xl border-l-2 border-zinc-500" aria-label="Search">
+        🔍
+      </button>
     </div>
+
+    <!-- Filter Button -->
     <div class="flex justify-end w-full">
-      <button class="px-4 py-2 font-semibold text-white bg-emerald-500 rounded-md" id="filter">Filter By Tags</button>
+      <button class="px-4 py-2 font-semibold text-white bg-emerald-500 rounded-md" id="filter">
+        Filter By Tags
+      </button>
     </div>
-    <section class="grid grid-cols-2 gap-4 md:grid-cols-4" id="displayRecipes">
-    </section>
-    <dialog class="absolute w-full p-3 mx-auto space-y-4 rounded-md">
-      <button id="close" class="absolute p-2 right-2">❌</button>
-      <form class="grid p-2 grid-cols-2 gap-4 overflow-auto md:grid-cols-4" id="displayTags">
-      </form>
+
+    <!-- Recipe Display Section -->
+    <section class="grid grid-cols-2 gap-4 md:grid-cols-4" id="displayRecipes"></section>
+
+    <!-- Filter Modal (Tags) -->
+    <dialog class="absolute w-full p-3 mx-auto space-y-4 rounded-md" id="filterModal">
+      <button id="close" class="absolute p-2 right-2" aria-label="Close Filter Modal">❌</button>
+      <form class="grid p-2 grid-cols-2 gap-4 overflow-auto md:grid-cols-4" id="displayTags"></form>
     </dialog>
   </main>
+
+  <!-- Footer Section -->
   <footer>
     <p class="mt-10 text-sm text-center">Jenish Adhikari</p>
   </footer>
+
+  <!-- JavaScript File -->
   <script src="recipes.js"></script>
 </body>
 

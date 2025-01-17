@@ -11,37 +11,47 @@
 </head>
 
 <body class="min-h-screen bg-zinc-50 px-3 py-5 mx-auto max-w-screen-xl space-y-5 text-zinc-800">
+  
+  <!-- Header Section -->
   <header class="flex items-center justify-between">
     <a href="/" class="text-xl font-semibold text-emerald-500">Recipe<span class="p-0.5 text-white bg-emerald-500">Finder</span></a>
     <nav>
       <a href="/recipes.html" class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2">All Recipes</a>
     </nav>
   </header>
+
+  <!-- Main Content Section -->
   <main class="space-y-5">
-    <div class="flex items-center p-1 border-2 border-zinc-500 rounded-md w-full md:max-w-[400px]">
-      <input type="search" class="w-full">
-      <button class="px-1 text-xl border-l-2 border-zinc-500">🔍</button>
+    <!-- Heading Section -->
+    <div class="space-y-1 text-center">
+      <h1 class="text-2xl font-bold md:text-4xl">Learn, Cook & Eat your food</h1>
+      <p class="text-lg font-medium text-emerald-500">50 Recipes</p>
     </div>
-    <div class="space-y-1">
-      <h1 class="text-2xl font-bold text-center md:text-4xl">Learn, Cook & Eat your food</h1>
-      <p class="text-lg font-medium text-center text-emerald-500">50 Recipes</p>
-    </div>
+
+    <!-- Popular Recipes Section -->
     <section class="space-y-4">
       <h2 class="text-xl font-semibold border-b-2 border-emerald-500 w-fit">Popular ❤️</h2>
-      <div class="grid grid-cols-2 gap-4 md:grid-cols-4" id="displayRecommendedRecipe">
-
-      </div>
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-4" id="displayPopularRecipe"></div>
     </section>
+
+    <!-- For Beginners Recipes Section -->
     <section class="space-y-4">
       <h2 class="text-xl font-semibold border-b-2 border-emerald-500 w-fit mt-10">For Beginners ✨</h2>
-      <div class="grid grid-cols-2 gap-4 md:grid-cols-4" id="displayRecipeForBeginners">
-
-      </div>
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-4" id="displayRecipeForBeginners"></div>
     </section>
   </main>
+
+  <!-- View All Recipes Button -->
+  <div class="flex justify-center">
+    <a href="/recipes.html" class="bg-emerald-500 text-white px-4 py-2 rounded-md font-semibold">View All Recipes</a>
+  </div>
+
+  <!-- Footer Section -->
   <footer>
     <p class="text-sm text-center mt-10">Jenish Adhikari</p>
   </footer>
+
+  <!-- JavaScript File -->
   <script src="script.js"></script>
 </body>
 
