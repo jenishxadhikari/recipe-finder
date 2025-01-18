@@ -1,9 +1,17 @@
+// DOM Element
 const displayPopularRecipe = document.getElementById("displayPopularRecipe")
 const displayRecipeForBeginners = document.getElementById("displayRecipeForBeginners")
 
+// Initial Display
 renderRecipe(displayPopularRecipe, "popular")
 renderRecipe(displayRecipeForBeginners, "easy")
 
+// Event Handlers
+function handleViewRecipe(recipeId) {
+  window.location.href = `recipe.html?id=${recipeId}`;
+}
+
+// Helper Functions
 async function renderRecipe(displayElement, type) {
   displayElement.innerHTML += `<p class="text-3xl">Loading...</p>`
 
@@ -32,8 +40,14 @@ async function renderRecipe(displayElement, type) {
                 <p>${recipe.cookTimeMinutes + recipe.prepTimeMinutes} mins</p>
               </div>
             </div>
+            <button id=${recipe.id} class="viewRecipe bg-emerald-500 text-white font-semibold py-1 m-1 rounded-md">View Recipe</button>
           </div>
         `).join('')
+        document.querySelectorAll(".viewRecipe").forEach((recipe) => {
+          recipe.addEventListener("click", () => {
+            handleViewRecipe(recipe.id)
+          })
+        })
       } else {
         displayElement.innerHTML = ""
         displayElement.innerHTML = "No Recipe Found"

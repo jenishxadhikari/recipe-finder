@@ -29,6 +29,10 @@ function handleSelectedTags(e) {
   selectedTags.push(e.target.value)
 }
 
+function handleViewRecipe(recipeId) {
+  window.location.href = `recipe.html?id=${recipeId}`;
+}
+
 // Event Listeners
 filter.addEventListener("click", handleOpenDialog)
 close.addEventListener("click", handleCloseDialog)
@@ -82,9 +86,15 @@ async function renderAllRecipes() {
               <p>${recipe.cookTimeMinutes + recipe.prepTimeMinutes} mins</p>
             </div>
           </div>
+          <button id=${recipe.id} class="viewRecipe bg-emerald-500 text-white font-semibold py-1 m-1 rounded-md">View Recipe</button>
         </div>
       `
-      ).join('')
+      ).join('')    
+      document.querySelectorAll(".viewRecipe").forEach((recipe) => {
+        recipe.addEventListener("click", () => {
+          handleViewRecipe(recipe.id)
+        })
+      })
     } else {
       displayRecipes.innerHTML = ""
       displayRecipes.innerHTML = "No Recipe Found"
@@ -136,9 +146,15 @@ function renderFilteredRecipes(recipes) {
             <p>${recipe.cookTimeMinutes + recipe.prepTimeMinutes} mins</p>
           </div>
         </div>
+        <button id=${recipe.id} class="viewRecipe bg-emerald-500 text-white font-semibold py-1 m-1 rounded-md">View Recipe</button>
       </div>
     `
     ).join('')
+    document.querySelectorAll(".viewRecipe").forEach((recipe) => {
+      recipe.addEventListener("click", () => {
+        handleViewRecipe(recipe.id)
+      })
+    })
   } else {
     displayRecipes.innerHTML = ""
     displayRecipes.innerHTML = "No Recipe Found"
@@ -147,7 +163,7 @@ function renderFilteredRecipes(recipes) {
 
 async function renderSearchedRecipes() {
   displayRecipes.innerHTML = `<p class="text-3xl">Loading...</p>`
-  if(search.value === ""){
+  if (search.value === "") {
     return renderAllRecipes()
   }
 
@@ -167,9 +183,15 @@ async function renderSearchedRecipes() {
               <p>${recipe.cookTimeMinutes + recipe.prepTimeMinutes} mins</p>
             </div>
           </div>
+          <button id=${recipe.id} class="viewRecipe bg-emerald-500 text-white font-semibold py-1 m-1 rounded-md">View Recipe</button>
         </div>
       `
       ).join('')
+      document.querySelectorAll(".viewRecipe").forEach((recipe) => {
+        recipe.addEventListener("click", () => {
+          handleViewRecipe(recipe.id)
+        })
+      })
     } else {
       displayRecipes.innerHTML = ""
       displayRecipes.innerHTML = "No Recipe Found"
