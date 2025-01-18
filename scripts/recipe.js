@@ -1,8 +1,11 @@
 // DOM Element
 const displayRecipeInfo = document.getElementById('displayRecipeInfo')
+const shareButton = document.getElementById('share-button')
 
 // Get recipe ID
 const urlParams = new URLSearchParams(window.location.search)
+const url = window.location.href
+
 const id = Number(urlParams.get('id'))
 
 // Local Data Storage
@@ -119,3 +122,9 @@ function attachSaveButtonListener(recipe) {
     attachSaveButtonListener(recipe) // Re-attach listener after re-rendering
   })
 }
+
+
+shareButton.addEventListener("click", () => {
+  navigator.clipboard.writeText(url)
+  alert("Link Copied")
+})

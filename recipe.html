@@ -1,45 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Recipe Finder</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
-  <title>Recipe Finder</title>
-</head>
+  <body
+    class="min-h-screen bg-zinc-50 px-3 py-5 mx-auto max-w-screen-xl space-y-5 text-zinc-800"
+  >
+    <!-- Header Section -->
+    <header class="flex items-center justify-between">
+      <a href="/" class="text-xl font-semibold text-emerald-500"
+        >Recipe<span class="p-0.5 text-white bg-emerald-500">Finder</span></a
+      >
+      <nav class="flex gap-4">
+        <a
+          href="/recipes.html"
+          class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2"
+          >All Recipes</a
+        >
+        <a
+          href="/saved-recipe.html"
+          class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2"
+          >Saved</a
+        >
+      </nav>
+    </header>
 
-<body class="min-h-screen bg-zinc-50 px-3 py-5 mx-auto max-w-screen-xl space-y-5 text-zinc-800">
-  <!-- Header Section -->
-  <header class="flex items-center justify-between">
-    <a href="/" class="text-xl font-semibold text-emerald-500">Recipe<span
-        class="p-0.5 text-white bg-emerald-500">Finder</span></a>
-    <nav class="flex gap-4">
-      <a href="/recipes.html"
-        class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2">All Recipes</a>
-      <a href="/saved-recipe.html"
-        class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2">Saved</a>
-    </nav>
-  </header>
+    <!-- Main Content Section -->
+    <main class="space-y-5 max-w-screen-sm mx-auto">
+      <a
+        href="javascript:history.back()"
+        class="hover:underline decoration-emerald-500 underline-offset-2 font-semibold"
+        >🔙 Go Back</a
+      >
 
-  <!-- Main Content Section -->
-  <main class="space-y-5 max-w-screen-sm mx-auto">
-    <a href="javascript:history.back()"
-      class="hover:underline decoration-emerald-500 underline-offset-2 font-semibold">🔙 Go Back</a>
+      <article id="displayRecipeInfo"></article>
+    </main>
+    <div class="flex justify-center">
+      <button
+        id="share-button"
+        class="bg-emerald-500 text-white px-6 py-2 rounded-md font-semibold"
+      >
+        Share
+      </button>
+    </div>
 
-    <article id="displayRecipeInfo">
+    <!-- Footer Section -->
+    <footer>
+      <p class="mt-10 text-sm text-center">Jenish Adhikari</p>
+    </footer>
 
-    </article>
-  </main>
-
-  <!-- Footer Section -->
-  <footer>
-    <p class="mt-10 text-sm text-center">Jenish Adhikari</p>
-  </footer>
-
-  <!-- JavaScript File -->
-  <script src="scripts/recipe.js"></script>
-</body>
-
+    <!-- JavaScript File -->
+    <script type="module" src="scripts/recipe.js"></script>
+  </body>
 </html>
