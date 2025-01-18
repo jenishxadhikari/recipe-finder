@@ -102,7 +102,7 @@ function renderSaveButton(recipe) {
     <span>${saved ? `Saved` : `Save`}</span>
     <button id="save-button">
       <img src="${
-        saved ? `/images/heart-red.svg` : `/images/heart.svg`
+        saved ? `/recipe-finder/images/heart-red.svg` : `/recipe-finder/images/heart.svg`
       }" alt="">
     </button>`
 }
