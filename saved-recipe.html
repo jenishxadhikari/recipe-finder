@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Recipe Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <link rel="stylesheet" href="style.css">
-  <title>Recipe Finder</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <body
+    class="min-h-screen bg-zinc-50 px-3 py-5 mx-auto max-w-screen-xl space-y-5 text-zinc-800"
+  >
+    <!-- Header Section -->
+    <header class="flex items-center justify-between">
+      <a href="/" class="text-xl font-semibold text-emerald-500"
+        >Recipe<span class="p-0.5 text-white bg-emerald-500">Finder</span></a
+      >
+      <nav class="flex gap-4">
+        <a
+          href="/recipes.html"
+          class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2"
+          >All Recipes</a
+        >
+        <a
+          href="/saved-recipe.html"
+          class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2"
+          >Saved</a
+        >
+      </nav>
+    </header>
 
-<body class="min-h-screen bg-zinc-50 px-3 py-5 mx-auto max-w-screen-xl space-y-5 text-zinc-800">
-  
-  <!-- Header Section -->
-  <header class="flex items-center justify-between">
-    <a href="/" class="text-xl font-semibold text-emerald-500">Recipe<span class="p-0.5 text-white bg-emerald-500">Finder</span></a>
-    <nav class="flex gap-4">
-      <a href="/recipes.html" class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2">All Recipes</a>
-      <a href="/saved-recipe.html" class="text-lg font-semibold hover:underline decoration-emerald-500 underline-offset-2">Saved</a>
-    </nav>
-  </header>
+    <!-- Main Content Section -->
+    <main class="space-y-5">
+      <!-- Saved Recipes Section -->
+      <section class="space-y-4">
+        <h2 class="text-xl md:text-2xl font-semibold border-b-2 border-emerald-500 w-fit">
+          Saved ❤️
+        </h2>
+        <div
+          class="grid grid-cols-2 gap-4 md:grid-cols-4"
+          id="displaySavedRecipes"
+        ></div>
+      </section>
+    </main>
 
-  <!-- Main Content Section -->
-  <main class="space-y-5">
+    <!-- View All Recipes Button -->
+    <div class="flex justify-center">
+      <a
+        href="/recipes.html"
+        class="bg-emerald-500 text-white px-4 py-2 rounded-md font-semibold"
+        >View All Recipes</a
+      >
+    </div>
 
-    <!-- Saved Recipes Section -->
-    <section class="space-y-4">
-      <h2 class="text-xl font-semibold border-b-2 border-emerald-500 w-fit">Saved ❤️</h2>
-      <div class="grid grid-cols-2 gap-4 md:grid-cols-4" id="displaySavedRecipes"></div>
-    </section>
-  </main>
+    <!-- Footer Section -->
+    <footer>
+      <p class="text-sm text-center mt-10">Jenish Adhikari</p>
+    </footer>
 
-  <!-- View All Recipes Button -->
-  <div class="flex justify-center">
-    <a href="/recipes.html" class="bg-emerald-500 text-white px-4 py-2 rounded-md font-semibold">View All Recipes</a>
-  </div>
-
-  <!-- Footer Section -->
-  <footer>
-    <p class="text-sm text-center mt-10">Jenish Adhikari</p>
-  </footer>
-
-  <!-- JavaScript File -->
-  <script src="scripts/save.js"></script>
-</body>
-
+    <!-- JavaScript File -->
+    <script type="module" src="scripts/save.js"></script>
+  </body>
 </html>
